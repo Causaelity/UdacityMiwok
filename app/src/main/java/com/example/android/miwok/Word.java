@@ -14,9 +14,34 @@ public class Word {
     /** Miwork translation for the word */
     private String mMiwokTranslation;
 
+    /** Resource ID for the image */
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
+
+    /**
+     *
+     * @param defaultTranslation - default translation text
+     * @param miwokTranslation - miwok text
+     */
+
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+    }
+
+
+    /**
+     *
+     * @param defaultTranslation - default translation text
+     * @param miwokTranslation - miwok text
+     * @param imageResourceId - resource id for corresponding image
+     */
+
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceId = imageResourceId;
     }
 
     /**
@@ -33,4 +58,15 @@ public class Word {
         return mMiwokTranslation;
     }
 
+    /**
+     * Get resource id
+     */
+    public int getImageResourceId() { return mImageResourceId; }
+
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
 }
+
+
