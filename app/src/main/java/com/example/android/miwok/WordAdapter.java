@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -43,7 +45,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         // Get the {@link Word} object located at this position in the list
-        Word currentWord = getItem(position);
+        final Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView miwokTextView = listItemView.findViewById(R.id.miwok_text_view);
@@ -58,11 +60,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
         // Get the View with the colors you want to modify
-        LinearLayout linearLayout = listItemView.findViewById(R.id.text_container);
+        LinearLayout textLayout = listItemView.findViewById(R.id.text_container);
         // Convert the color ID into a usable int.
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         // Set the color
-        linearLayout.setBackgroundColor(color);
+        textLayout.setBackgroundColor(color);
+//        listItemView.setBackgroundColor(color);
+
 
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
         ImageView imageView = listItemView.findViewById(R.id.image);
